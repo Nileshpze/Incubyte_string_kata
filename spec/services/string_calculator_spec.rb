@@ -12,5 +12,13 @@ RSpec.describe StringCalculator do
     it 'returns the number when a single number is provided' do
       expect(calc.add('1')).to eq 1
     end
+
+    it 'adds two comma separated numbers' do
+      expect(calc.add('1,5')).to eq 6
+    end
+
+    it 'adds any amount of numbers' do
+      expect(calc.add('1,2,3,4')).to eq 10
+    end
   end
 end
