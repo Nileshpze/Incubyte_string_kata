@@ -27,7 +27,7 @@ class StringCalculator
   def parse_custom_delimiter(input)
     header, values = input.split("\n", 2)
     delimiter = header[2..]
-    [delimiter, values]
+    [ delimiter, values ]
   end
 
   def check_for_negatives!(numbers)
