@@ -8,6 +8,8 @@ class StringCalculator
     numbers = normalize_input(input)
     integers = numbers.map(&:to_i)
 
+    check_for_negatives!(integers)
+
     integers.sum
   end
 
@@ -26,5 +28,12 @@ class StringCalculator
     header, values = input.split("\n", 2)
     delimiter = header[2..]
     [delimiter, values]
+  end
+
+  def check_for_negatives!(numbers)
+    negatives = numbers.select { |n| n < 0 }
+    if negatives.any?
+      raise NegativeNumbersError, "negative numbers not allowed #{negatives.join(',')}"
+    end
   end
 end
